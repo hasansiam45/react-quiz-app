@@ -1,38 +1,179 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app{
+    height: 100vh;
+    display: flex;
+    background-color: #020230;
+    color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main{
+    width: 75%;
+    background:linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230), url('./assets/bg5.jpg') center center no-repeat;
+    display: flex;
+    flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.top{
+    height: 50%;
+    position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.timer{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #fff;
+    position:absolute;
+    bottom: 5px;
+    left: 95px;
 }
 
-.App-link {
-  color: #61dafb;
+.bottom{
+    height: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.quiz{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.question{
+    background: linear-gradient(#020230, black);
+    width: 80%;
+    text-align: center;
+    padding: 15px;
+    border-radius:10px;
+    border: 3px solid white;
+}
+
+.answers{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.answer{
+    width: 40%;
+    text-align: center;
+    padding: 10px; 
+    background: linear-gradient(#020230, #22074d);
+    border: 1px solid white;
+    border-radius:10px;
+    font-size: 20px;
+    margin:0px 10px 20px 10px;
+    cursor: pointer;
+}
+
+.answer:hover, .answer.active {
+    background: mediumblue;
+}
+
+.answer.correct {
+    animation: correct 3s ease forwards;
+}
+.answer.wrong {
+    animation: wrong 3s ease forwards;
+}
+@keyframes correct {
+    0%,
+    15%,
+    35%,
+    50%{
+        background: mediumblue;
+    }
+    20%,
+    40%,
+    60%{
+        background: linear-gradient(#020230, #22074d);
+    }
+    65%,
+    100%{
+        background: green;
+    }
+
+}
+@keyframes wrong {
+    0%,
+    15%,
+    35%,
+    50%{
+        background: mediumblue;
+    }
+    20%,
+    40%,
+    60%{
+        background: linear-gradient(#020230, #22074d);
+    }
+    65%,
+    100%{
+        background: crimson;
+    }
+
+}
+.pyramid{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.moneyList{
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+}
+.moneyListItem{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+}
+
+.moneyListItem.active{
+    background-color:teal;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.moneyListNumber{
+    width: 30%;
+}
+
+.endText{
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.heading{
+    position: relative;
+    top: 25%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.restart{
+    text-align: center;
+}
+
+.restart button{
+    padding: 10px 15px;
+    background:  linear-gradient(#03632e, #002509);
+    color: #fff;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
 }
